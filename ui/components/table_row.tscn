@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://l1avfohs1ey7"]
+
+[ext_resource type="Script" path="res://ui/components/table_row.gd" id="1_g3bj2"]
+
+[node name="TableRow" type="ColorRect" groups=["table_row"]]
+custom_minimum_size = Vector2(0, 30)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+color = Color(0.187176, 0.187176, 0.187176, 1)
+script = ExtResource("1_g3bj2")
+odd_color = Color(0.266575, 0.266575, 0.266575, 1)
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<Name>"
+
+[node name="GroupButton" type="Button" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GroupLabel" type="Label" parent="HBox/GroupButton"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "<Group ID>"
+vertical_alignment = 1
+
+[node name="LogoText" type="LineEdit" parent="HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "tvg-logo"
+
+[node name="GroupText" type="LineEdit" parent="HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "group-title"
+
+[connection signal="pressed" from="HBox/GroupButton" to="." method="_on_group_button_pressed"]
